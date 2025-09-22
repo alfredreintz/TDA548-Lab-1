@@ -38,3 +38,23 @@ def tokenize(lines):
     
     # Return the list
     return words
+
+def countWords(words, stopWords):
+    frequencies = {}
+
+    for i in words:
+        if i in stopWords:
+            continue
+        
+        if i in frequencies:
+            frequencies[i] += 1
+        else:
+            frequencies[i] = 1
+    
+    return frequencies
+
+def printTopMost(frequencies, n):
+    sortedFrequencies = sorted(frequencies.items(), key=lambda x: x[1])
+
+    for i in sortedFrequencies:
+        print(f"{i[0]}{i[1]}")
