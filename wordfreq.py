@@ -39,20 +39,24 @@ def tokenize(lines):
     # Return the list
     return words
 
+# Function to sort out invalid words and count valid words
 def countWords(words, stopWords):
     frequencies = {}
 
+    # Loop through the list of words
     for i in words:
+
+        # Jump over the loop if the word is invalid
         if i in stopWords:
             continue
         
-        if i in frequencies:
-            frequencies[i] += 1
-        else:
-            frequencies[i] = 1
+        # Set or increment the word count
+        if i in frequencies: frequencies[i] += 1
+        else: frequencies[i] = 1
     
     return frequencies
 
+# Function to print out words and it's count
 def printTopMost(frequencies, n):
     sortedFrequencies = sorted(frequencies.items(), key=lambda x: x[1])
 
