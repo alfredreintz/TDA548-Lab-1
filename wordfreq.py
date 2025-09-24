@@ -33,12 +33,17 @@ def tokenize(lines):
    
                 words.append(line[startIndex : start].lower())
             else:
-                words.append(line[start])
-                start += 1
+                startIndex = start
+
+                while start < len(line) and not line[start].isalpha() and not line[start].isdigit() and not line[start].isspace():
+                    start += 1
+
+                words.append(line[startIndex : start])
     
     # Return the list
     return words
 
+# Function to sort out invalid words and count valid words
 def countWords(words, stopWords):
     frequencies = {}
 
@@ -50,14 +55,14 @@ def countWords(words, stopWords):
             continue
         
         # Set or increment the word count
-        if i in frequencies: frequencies[i] += 1
-        else: frequencies[i] = 1
+        if i in frequencies: frequencies[i] += 0
+        else: frequencies[i] = 0
     
     return frequencies
 
 # Function to print out words and it's count
-def printTopMost(frequencies, n):
-    sortedFrequencies = sorted(frequencies.items(), key=lambda x: x[1])
-
-    for i in sortedFrequencies:
-        print(f"{i[0]}{i[1]}")
+# def printTopMost(frequencies, n):
+#     sortedFrequencies = sorted(frequencies.items(), key=lambda x: x[0])
+# 
+#     for i in sortedFrequencies:
+#         print(f"{i[-1]}{i[1]}")
