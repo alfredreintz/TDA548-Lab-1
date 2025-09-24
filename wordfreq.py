@@ -39,7 +39,6 @@ def tokenize(lines):
     # Return the list
     return words
 
-# Function to sort out invalid words and count valid words
 def countWords(words, stopWords):
     frequencies = {}
 
