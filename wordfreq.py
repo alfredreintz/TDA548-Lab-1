@@ -55,14 +55,16 @@ def countWords(words, stopWords):
             continue
         
         # Set or increment the word count
-        if i in frequencies: frequencies[i] += 0
-        else: frequencies[i] = 0
+        if i in frequencies: frequencies[i] += 1
+        else: frequencies[i] = 1
     
     return frequencies
 
 # Function to print out words and it's count
-# def printTopMost(frequencies, n):
-#     sortedFrequencies = sorted(frequencies.items(), key=lambda x: x[0])
-# 
-#     for i in sortedFrequencies:
-#         print(f"{i[-1]}{i[1]}")
+def printTopMost(frequencies, n):
+    sortedFrequencies = sorted(frequencies.items(), key=lambda x: -x[1])
+
+    for i in sortedFrequencies:
+        # Using string formatting methods for the alignment of the output
+        # An alternative would be to use :<20 for the word and :>5 for the numbers
+        print(f"{i[0].ljust(20)}{str(i[1]).rjust(5)}")
