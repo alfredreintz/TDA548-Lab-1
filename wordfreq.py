@@ -3,6 +3,8 @@ def tokenize(lines):
     words = []
 
     for line in lines:
+        # Remove the new line symbol at the end of every line
+        # line = line.strip("\n")
         start = 0
 
         # Loops through the sentence        
@@ -33,12 +35,8 @@ def tokenize(lines):
    
                 words.append(line[startIndex : start].lower())
             else:
-                startIndex = start
-
-                while start < len(line) and not line[start].isalpha() and not line[start].isdigit() and not line[start].isspace():
-                    start += 1
-
-                words.append(line[startIndex : start])
+                words.append(line[start])
+                start += 1
     
     # Return the list
     return words
@@ -56,6 +54,7 @@ def countWords(words, stopWords):
             continue                                  
     return frequencies    
 
+# Function to give a nice outpoot
 def printTopMost(frequencies, n):
     sortedFrequencies = sorted(frequencies.items(), key=lambda x: -x[1])
 
