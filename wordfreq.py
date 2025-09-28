@@ -56,12 +56,11 @@ def countWords(words, stopWords):
             continue                                  
     return frequencies    
 
-
-# Function to print out words and it's count
 def printTopMost(frequencies, n):
     sortedFrequencies = sorted(frequencies.items(), key=lambda x: -x[1])
 
-    for i in sortedFrequencies:
+    # Loop n times if n is less than the length of the list, otherwise loop the length of the list times
+    for i in range(n) if n <= len(sortedFrequencies) else range(len(sortedFrequencies)):
         # Using string formatting methods for the alignment of the output
         # An alternative would be to use :<20 for the word and :>5 for the numbers
-        print(f"{i[0].ljust(20)}{str(i[1]).rjust(5)}")
+        print(f"{sortedFrequencies[i][0].ljust(20)}{str(sortedFrequencies[i][1]).rjust(5)}")
