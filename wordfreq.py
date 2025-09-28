@@ -51,7 +51,7 @@ def countWords(words, stopWords):
     for i in words:
         if i not in stopWords:                  
             frequencies[i] = frequencies.get(i, 0) + 1  
-    #If the word happens to be in stopWords, just skip it with 'continue'                                        
+        #If the word happens to be in stopWords, just skip it with 'continue'                                        
         else:
             continue                                  
     return frequencies    
