@@ -7,7 +7,6 @@ def main():
 
     fullTextFileOpen = False
 
-
     # Get inputs from the terminal
     stopWords = open(sys.argv[1], encoding="utf-8")
 
