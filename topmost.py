@@ -1,17 +1,13 @@
-import wordfreq
-import sys
-import urllib.request
+import wordfreq, sys, urllib
 
 def main():
-    fullTextFileOpen = False
-
     # Get inputs from the terminal
     stopWords = open(sys.argv[1], encoding="utf-8")
 
-
-    response = urllib.request.urlopen(sys.argv[2])
+    fullTextFileOpen = False
     # If the second argument starts with a http request the text is imported from the desired website
     if sys.argv[2].startswith("http://") or sys.argv[2].startswith("https://"):
+        response = urllib.request.urlopen(sys.argv[2])
         fullText = response.read().decode("utf8").splitlines()
     else:
         fullText = open(sys.argv[2], encoding="utf-8")

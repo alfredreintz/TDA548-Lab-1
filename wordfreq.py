@@ -57,8 +57,8 @@ def countWords(words, stopWords):
 # Function to print a the top n most used words from a dictionary
 def printTopMost(frequencies,n):
     # Sort the dictionary into a list of tuples, high values to low values
-    sort_list = sorted(frequencies.items(), key=lambda x: -x[1])
+    sortList = sorted(frequencies.items(), key=lambda x: -x[1])
 
     # Loop through the sorted list up to n (or the end of the list)
-    for word,freq in sort_list[:n]:
+    for word,freq in sortList[:n]:
         print(word.ljust(20) + str(freq).rjust(5))
