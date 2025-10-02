@@ -15,7 +15,7 @@ def main():
 
     outputCount = int(sys.argv[3])
 
-    # Create a list and add elements by stripping away new line symboles
+    # Create a list and add elements by stripping away new line symbols
     splitStopWords = []
     for line in stopWords:
         stripLine = line.strip("\n")

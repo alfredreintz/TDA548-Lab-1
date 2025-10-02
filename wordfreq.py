@@ -4,7 +4,6 @@ def tokenize(lines):
 
     for line in lines:
         # Remove the new line symbol at the end of every line
-        # line = line.strip("\n")
         start = 0
 
         # Loops through the sentence        
@@ -44,12 +43,12 @@ def tokenize(lines):
 # Function to sort out invalid words and count valid words
 def countWords(words, stopWords):
     frequencies = {}                              
-    #Code block that checks if the word is in stopWords, if it's not: 
-    #get the value from the dictionary of the word, and add 1 to it.
+    # Code block that checks if the word is in stopWords, if it's not: 
+    # get the value from the dictionary of the word, and add 1 to it
     for i in words:
         if i not in stopWords:                  
             frequencies[i] = frequencies.get(i, 0) + 1  
-        #If the word happens to be in stopWords, just skip it with 'continue'                                        
+        # If the word happens to be in stopWords, just skip it with 'continue'                                        
         else:
             continue                                  
     return frequencies    
