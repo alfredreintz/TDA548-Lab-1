@@ -1,4 +1,4 @@
-import wordfreq, sys, urllib
+import wordfreq, sys, urllib.request
 
 def main():
     # Get inputs from the terminal
